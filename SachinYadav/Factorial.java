@@ -1,3 +1,5 @@
+package Exercise1;
+
 import java.util.Scanner;
 
 /*
@@ -6,23 +8,28 @@ import java.util.Scanner;
  * @Organization - Veersa Technologies
  */
 public class Factorial {
-
-    //Creating recursive factorial method to calculate the factorial of any number
+    
+    //recursive factorial function
     private static int factorial(int num) {
-        //base case
+        if (num < 0) {
+            throw new IllegalArgumentException("Input must be a non-negative integer.");
+        }
         if (num <= 1) return 1;
-        //recursive call of factorial function
         return num * factorial(num - 1);
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the number whose factorial is to be calculated: ");
-        int num = Integer.parseInt(scanner.nextLine());
-        //calling the factorial function
-        int factorialOfNum = factorial(num);
-        //printing the output
-        System.out.println("The factorial of " + num + " is " + factorialOfNum);
-
+        try {
+            System.out.println("Enter the number whose factorial is to be calculated: ");
+            int num = Integer.parseInt(scanner.nextLine());
+            int factorialOfNum = factorial(num);
+            System.out.println("The factorial of " + num + " is " + factorialOfNum);
+        } catch (NumberFormatException e) {
+            //System.err.println will print it in red color denoting it as error
+            System.err.println("Invalid input: Please provide a valid integer.");
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+        }
     }
 }
