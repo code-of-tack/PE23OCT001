@@ -18,8 +18,13 @@ public class FactorialNumber {
 			System.out.print("Enter a number to calculate its factorial: ");
 			int number = scanner.nextInt();
 			scanner.close();
-
-			long factorial = calculateFactorial(number);
+			if(n>=0)
+			{long factorial = calculateFactorial(number);}
+			else
+			{
+				system.out.println("Negetive number");
+			}
+			
 			System.out.println("Factorial of " + number + " is " + factorial);
 		}
 
