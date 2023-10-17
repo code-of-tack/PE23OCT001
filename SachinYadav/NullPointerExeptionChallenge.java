@@ -11,10 +11,15 @@ public class NullPointerExceptionChallenge {
     public static void main(String[] args) {
         // String str = "Sachin" it will work fine because the string is not null
         // String str = null; // gives NullPointerExepception because str is empty 
-        String str = "Sachin";
+        String str = null;
         try {
-            int length = str.length();
-            System.out.println("Length of the string: " + length);
+            if(str != null)
+            {    
+                int length = str.length();
+                System.out.println("Length of the string: " + length);
+            }else{
+                System.out.println("String is null.");
+            }
         } catch (NullPointerException nullPointerException) {
             System.out.println("String is null. Please provide the non-null string");
         }
