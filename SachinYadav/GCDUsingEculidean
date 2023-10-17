@@ -1,0 +1,42 @@
+package Exercise2;
+
+import java.util.Scanner;
+
+/*
+ * This is exercise-02 of best coding practice by project earlybird
+ * @Author - Sachin Yadav
+ * @Organization - Veersa Technologies
+ */
+public class GCDUsingEuclidean {
+
+    /*
+     * Function to implement Euclidean algorithm to find the GCD of two numbers
+     * @param {int} a - the first input number
+     * @param {int} b - the second input number
+     * @returns {int} - the gcd of two numbers
+     */
+    public static int gcdOfTwoNumber(int a, int b) {
+        if (a == 0) return b;
+        return gcdOfTwoNumber(b % a, a);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        try {
+            System.out.println("Enter the first number : ");
+            int firstNum = Integer.parseInt(sc.nextLine());
+
+            System.out.println("Enter the second number : ");
+            int secondNum = Integer.parseInt(sc.nextLine());
+
+            int gcdValue = gcdOfTwoNumber(firstNum, secondNum);
+            System.out.println("The gcd of " + firstNum + " and " + secondNum + " is " + gcdValue);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter valid integers.");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid arguments. Please provide valid arguments. ");
+        } finally {
+            sc.close();
+        }
+    }
+}
