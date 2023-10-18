@@ -12,7 +12,7 @@ public class StringManipulationDebug {
         String str2 = "world";
 
         // Concatenating two strings
-        String result = str1 + str2;
+        String result = str1 + " " +str2; //added space between two Strings
         System.out.println("Concatenation result: " + result);
 
         // Finding the substring
