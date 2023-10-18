@@ -12,7 +12,7 @@ class StringManipulationDebug
         Console.WriteLine("Concatenation result: " + result);
 
         // Finding the substring
-        string sub = result.Substring(1, result.Length-1);
+        string sub = result.Substring(1, Math.Min(10, result.Length - 1));
         Console.WriteLine("Substring result: " + sub);
 
         // Changing the case
