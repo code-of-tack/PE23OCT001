@@ -28,7 +28,9 @@ using System.Collections.Generic;
         }
         static void Main(string[] args)
         {
-            Console.Write("num 1 : ");
+            try
+            {
+                Console.Write("num 1 : ");
             int n1 = Convert.ToInt32(Console.ReadLine());
 
             Console.Write("num 2 : ");
@@ -36,5 +38,17 @@ using System.Collections.Generic;
 
             int ans = q2.GCD(n1, n2);
             Console.WriteLine("GCD : " + ans);
-        }
+            }
+            
+        
+            catch (FormatException)
+            {
+                Console.WriteLine("Please enter valid integers.");
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("Input is too large to handle.");
+            }
+    
+        }    
     }
