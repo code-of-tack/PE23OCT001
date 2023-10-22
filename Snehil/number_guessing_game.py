@@ -1,22 +1,31 @@
-print("hello , let's start the game ")
-from random import randint
-choice = randint(1, 100)
-print(choice)
-count = 5
+import random
 
+def guess_the_number():
+    print("Welcome to the Guess the Number Game!")
+    print("I am thinking of a number between 1 and 100. Try to guess it.")
 
-while(True and count):
-    print("enter the number :")
-    input_a = int(input())
-    if input_a<choice:
-        print("try a greater number")
-        count-=1
-        print("Number of turns you are left with :",count)
-    elif input_a>choice:
-        print("try a smaller number")
-        count-=1
-        print("Number of turns you are left with :",count)
-    else:
-        print("wohooo ... you got the right answer !!! ")
-        break
-    
+    random_number = random.randint(1, 100)
+    attempts = 0
+    max_attempts = 5
+
+    while attempts < max_attempts:
+        try:
+            guess = int(input("Enter your guess: "))
+            attempts += 1
+
+            if guess < random_number:
+                print("Your guess is too low. Try again!")
+            elif guess > random_number:
+                print("Your guess is too high. Try again!")
+            else:
+                print(f"Congratulations! You guessed the number {random_number} correctly in {attempts} attempts!")
+                break
+
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+    if attempts == max_attempts:
+        print(f"Sorry, you've reached the maximum number of attempts. The number was {random_number}.")
+
+if __name__ == "__main__":
+    guess_the_number()
