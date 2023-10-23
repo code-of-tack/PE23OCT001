@@ -1,0 +1,26 @@
+.bg-cream {
+    background-color: #f5f5dc; /* Cream color */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 80%;
+    max-width: 600px;
+}
+
+.shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    text-align: left;
+}
+
+.table {
+    max-width: 100%;
+}
+
+/* Additional styling can be added as needed */
