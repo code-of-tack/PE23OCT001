@@ -8,7 +8,7 @@ class StringManipulationDebug
         string str2 = "world";
         
         // Concatenating two strings
-        string result = str1 + str2;
+        string result = str1 +" "+ str2;
         Console.WriteLine("Concatenation result: " + result);
 
         // Finding the substring
