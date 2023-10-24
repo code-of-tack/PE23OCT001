@@ -12,7 +12,7 @@ class MathematicalCalculationDebug
         Console.WriteLine("Sum: " + sum);
 
         // Performing division
-        int division = a / b;
+        double division = (double)a / b;
         Console.WriteLine("Division: " + division);
 
         // Performing multiplication
