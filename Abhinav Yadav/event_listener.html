@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling Debugging</title>
+</head>
+<body>
+    <button id="myButton">Click me</button>
+
+    <script>
+        // Function to handle the click event
+        function handleClick() {
+            console.log('Button clicked!');
+        }
+
+        // Event listener with corrected function reference
+        document.getElementById('myButton').addEventListener('click', () => {
+            handleClick();
+        });
+    </script>
+</body>
+</html>
