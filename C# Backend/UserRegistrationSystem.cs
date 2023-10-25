@@ -30,13 +30,15 @@ namespace UserRegistrationSystem
         public UserRegistrationSystem()
         {
             users = new Dictionary<string, User>();
-            usernamePattern = new Regex("^[a-zA-Z0-9_]{6,}$");
+            usernamePattern = new Regex("^[a-z0-9]{1,}$");
             passwordPattern = new Regex("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$");
         }
 
         public bool RegisterUser(string username, string password)
         {
-
+            if(!IsUsernameValid(username))
+                return false;
+            
             var newUser = new User(username, password);
             users.Add(username, newUser);
             return true;
@@ -44,7 +46,7 @@ namespace UserRegistrationSystem
 
         private bool IsUsernameValid(string username)
         {
-            return true; // Implement Logic
+            return usernamePattern.IsMatch(username);
         }
 
         private bool IsPasswordValid(string password)
@@ -56,9 +58,10 @@ namespace UserRegistrationSystem
         {
             return true; // Implement Logic
         }
-
+        
         static void Main(string[] args)
         {
+            
             // Example usage
             var system = new UserRegistrationSystem();
             Console.WriteLine(system.RegisterUser("user123", "Password123")); // should return true
