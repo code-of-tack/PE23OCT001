@@ -34,11 +34,18 @@ namespace UserRegistrationSystem
             passwordPattern = new Regex("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$");
         }
 
-        public bool RegisterUser(string username, string password)
+         public bool RegisterUser(string username, string password)
         {
+            
+            if (IsDuplicateUsername(username))
+            {
+            Console.WriteLine("Username is already taken.");
+                return false;
+            }
 
             var newUser = new User(username, password);
             users.Add(username, newUser);
+            Console.WriteLine($"User {username} registered successfully.");
             return true;
         }
 
@@ -54,7 +61,7 @@ namespace UserRegistrationSystem
 
         private bool IsDuplicateUsername(string username)
         {
-            return true; // Implement Logic
+            return users.ContainsKey(username);
         }
 
         static void Main(string[] args)
