@@ -30,49 +30,46 @@ namespace UserRegistrationSystem
         public UserRegistrationSystem()
         {
             users = new Dictionary<string, User>();
-            usernamePattern = new Regex("^[a-z0-9]{1,}$");
+            usernamePattern = new Regex("^[a-zA-Z0-9_]{6,}$");
             passwordPattern = new Regex("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$");
         }
 
-         public bool RegisterUser(string username, string password)
+        public bool RegisterUser(string username, string password)
         {
-            if(!IsUsernameValid(username))
-            {
-                Console.WriteLine("Invalid Username.");
-                return false; 
-            }
-            
-            
-            if (IsDuplicateUsername(username))
-            {
-                Console.WriteLine("Username is already taken.");
-                return false;
-            }
 
             var newUser = new User(username, password);
             users.Add(username, newUser);
-            Console.WriteLine($"User {username} registered successfully.");
             return true;
         }
 
         private bool IsUsernameValid(string username)
         {
-            return usernamePattern.IsMatch(username);
+            return true; // Implement Logic
         }
 
         private bool IsPasswordValid(string password)
         {
-            return true; // Implement Logic
+            if (password.Length < 6)
+              return false;
+  
+          // Check for at least one uppercase letter
+            if (!Regex.IsMatch(password, "[A-Z]"))
+              return false;
+  
+          // Check for at least one special character (@, #, $, %)
+            if (!Regex.IsMatch(password, "[@#$%]"))
+              return false;
+          
+           return true; // Implement Logic
         }
 
         private bool IsDuplicateUsername(string username)
         {
-            return users.ContainsKey(username);
+            return true; // Implement Logic
         }
-        
+
         static void Main(string[] args)
         {
-            
             // Example usage
             var system = new UserRegistrationSystem();
             Console.WriteLine(system.RegisterUser("user123", "Password123")); // should return true
